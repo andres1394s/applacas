@@ -1,0 +1,36 @@
+
+<div>
+    <div>
+        <h1>Consultar detalle</h1>
+        <input  [(ngModel)]="input" placeholder="Consultar">
+  <button (click)="consultaPlaca()">Consultar</button>
+    </div>
+    <h2>Detalle placa</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Numero de placa</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of consulta">
+          <td>{{ user.num_placa }}</td>
+          <td>{{ user.fecha_reserva }}</td>
+          <td>{{ user.hora_reserva }}</td>
+          <td>{{ user.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <label for="cita">selecciona fecha</label>
+    <input  [(ngModel)]="selectedDate" placeholder="dd/mm/yyyy">
+    <br>
+    <label for="cita">Select una hora</label>
+    <select id="exampleSelect" [(ngModel)]="selectedhour">
+      <option *ngFor="let option of houroptions" [value]="option.label">{{ option.label }}</option>
+    </select>
+    <button (click)="BookPlacaDate()">Guardar</button>
+  </div>
